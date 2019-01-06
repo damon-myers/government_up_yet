@@ -43,3 +43,14 @@ cd government_up_yet
 export FLASK_APP=service.py
 flask run
 ```
+
+# Run with `docker-compose`
+
+Easily run the app locally with hot-reloading. Not for production.
+
+```
+docker-compose up
+# Visit client at localhost:4000
+# Hit the backend at localhost:5000
+# Ctrl-C to tear down
+```
