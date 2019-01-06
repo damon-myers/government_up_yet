@@ -54,3 +54,22 @@ docker-compose up
 # Hit the backend at localhost:5000
 # Ctrl-C to tear down
 ```
+
+Also run production. This is simulating what production cluster looks
+like except with `docker-compose`.
+
+```
+docker-compose -f docker-compose.prod.yml up
+# Visit client at localhost:4000
+# Hit the backend at localhost:5000
+# Ctrl-C to tear down
+```
+
+# Deployment
+
+Build and publish the container images. Must login to docker registry first.
+
+```
+docker login registry.gitlab.com
+./publish.sh
+```

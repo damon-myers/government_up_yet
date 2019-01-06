@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  ################################
+  #   Setup backend container
+  ################################
+  backend:
+    image: registry.gitlab.com/cachednerds/government_up_yet:backend
+    ports:
+      - 5000:5000
+  ################################
+  #   Setup frontend container
+  ################################
+  frontend:
+    image: registry.gitlab.com/cachednerds/government_up_yet:frontend
+    expose:
+      - 80
+    ports:
+      - 4000:80
+    links:
+    - backend
