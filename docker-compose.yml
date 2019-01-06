@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: ./government_up_yet
+    ports:
+      - "5000:5000"
