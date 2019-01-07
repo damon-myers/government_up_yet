@@ -2,12 +2,27 @@ version: '3'
 
 services:
   ################################
+  #   Setup db container
+  ################################
+  db:
+    image: postgres:9.4
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    env_file:
+      - env_file
+    networks:
+      - backend
+  ################################
   #   Setup backend container
   ################################
   backend:
     image: registry.gitlab.com/cachednerds/government_up_yet:backend
     ports:
       - 5000:5000
+    depends_on: 
+      - db
+    networks:
+      - backend
   ################################
   #   Setup frontend container
   ################################
@@ -19,3 +34,10 @@ services:
       - 4000:80
     links:
     - backend
+
+networks:
+  backend:
+  frontend:
+
+volumes:
+  db-data:

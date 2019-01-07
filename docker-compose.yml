@@ -2,12 +2,27 @@ version: '3'
 
 services:
   ################################
+  #   Setup db container
+  ################################
+  db:
+    image: postgres:9.4
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    env_file:
+      - env_file
+    networks:
+      - backend
+  ################################
   #   Setup backend container
   ################################
   backend:
     build: ./government_up_yet
     ports:
       - 5000:5000
+    depends_on: 
+      - db
+    networks:
+      - backend
   ################################
   #   Setup frontend container
   ################################
@@ -20,5 +35,14 @@ services:
     volumes:
       - ./frontend/src:/usr/src/app/src
       - ./frontend/public:/usr/src/app/public
+    networks:
+      - frontend
     links:
-    - backend
+      - backend
+
+networks:
+  backend:
+  frontend:
+
+volumes:
+  db-data:
