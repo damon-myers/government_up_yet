@@ -73,3 +73,10 @@ Build and publish the container images. Must login to docker registry first.
 docker login registry.gitlab.com
 ./publish.sh
 ```
+
+Set the kubeconfig variable to the downloaded config. Deploy with `./deploy.sh`.
+
+```
+export KUBECONFIG=./path/to/kubeconfig
+./deploy.sh
+```
