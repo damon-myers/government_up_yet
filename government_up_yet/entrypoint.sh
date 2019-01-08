@@ -1,3 +1,2 @@
 #!/bin/bash
-export FLASK_APP=service.py
-flask run --host=0.0.0.0
+government_up_yet run -host=0.0.0.0
