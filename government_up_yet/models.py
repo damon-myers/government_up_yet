@@ -23,4 +23,3 @@ class Source(Base):
     __tablename__ = 'source'
     source_id = Column(Integer, primary_key=True)
     name = Column(String(256), unique=True)
-    url = Column(String(256), unique=True)
