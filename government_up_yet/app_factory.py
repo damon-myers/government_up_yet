@@ -9,13 +9,16 @@ from flask import Flask
 from flask.cli import FlaskGroup
 from news_service import NewsService
 from database import init_db
-
+import time
+import os
 
 def create_app():
     """
     We override the default app creation logic so that we can start the
     news_service when the server is created.
     """
+    if "SLOW_START" in os.environ:
+        time.sleep(3)
     app = Flask('government_up_yet')
     init_db()
     news_service = NewsService()
