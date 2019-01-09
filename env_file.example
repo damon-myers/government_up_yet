@@ -2,3 +2,5 @@ POSTGRES_USER=<some_user>
 POSTGRES_PASSWORD=<some_pass>
 POSTGRES_DB=<db_name>
 SECRET_KEY=<secret>
+NEWS_API_KEY=<key>
+SLOW_START=1
