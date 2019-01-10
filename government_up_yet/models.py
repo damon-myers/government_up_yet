@@ -10,8 +10,8 @@ class Article(Base):
     __tablename__ = 'article'
     id = Column(Integer, primary_key=True)
     headline = Column(String(256))
-    url = Column(String(256), unique=True)
-    image_url = Column(String(256), unique=True)
+    url = Column(String(1024), unique=True)
+    image_url = Column(String(1024))
     publish_time = Column(DateTime())
     source_id = Column(Integer, ForeignKey("source.source_id"))
 
