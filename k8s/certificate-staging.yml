@@ -1,0 +1,21 @@
+---
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: government-up-yet-staging
+spec:
+  secretName: government-up-yet-staging-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: www.isthegovernmentupyet.com
+  dnsNames:
+    - api.isthegovernmentupyet.com
+    - www.isthegovernmentupyet.com
+  acme:
+    config:
+      - http01:
+          ingress: app-ingress
+        domains:
+          - api.isthegovernmentupyet.com
+          - www.isthegovernmentupyet.com
